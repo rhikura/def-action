@@ -30664,8 +30664,15 @@ const run = async () => {
         }
 
         switch (input.jobType) {
-            case "body_check": bodyCheck();
-            case "notify_user": notifyUser();
+            case "body_check":
+                bodyCheck()
+                break
+            case "notify_user":
+                notifyUser()
+                break
+            default:
+                _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed("Job type undefine")
+                break
         }
 
     } catch (error) {

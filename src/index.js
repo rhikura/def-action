@@ -21,8 +21,15 @@ const run = async () => {
         }
 
         switch (input.jobType) {
-            case "body_check": bodyCheck();
-            case "notify_user": notifyUser();
+            case "body_check":
+                bodyCheck()
+                break
+            case "notify_user":
+                notifyUser()
+                break
+            default:
+                core.setFailed("Job type undefine")
+                break
         }
 
     } catch (error) {
