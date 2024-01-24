@@ -13,11 +13,17 @@ jobs:
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           jobType: "body_check"
+  branch_check:
+    runs-on: ubuntu-latest
+    steps:
       - id: branch_check
         uses: rhikura/def-action@v1.0.4
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           jobType: "branch_check"
+  notify_user:
+    runs-on: ubuntu-latest
+    steps:
       - id: notify_user
         uses: rhikura/def-action@v1.0.4
         if: ${{ github.event.action == 'opened' ||  github.event.action == 'reopened' }}
