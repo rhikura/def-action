@@ -11,6 +11,10 @@ const bodyCheck = () => {
 }
 
 const notifyUser = () => {
+    core.info(github.context.eventName)
+}
+
+const branchCheck = () => {
     core.info("User notified")
 }
 
@@ -26,6 +30,9 @@ const run = async () => {
                 break
             case "notify_user":
                 notifyUser()
+                break
+            case "branch_check":
+                branchCheck()
                 break
             default:
                 core.setFailed("Job type undefine")

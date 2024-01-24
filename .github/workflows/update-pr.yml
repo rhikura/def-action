@@ -7,18 +7,19 @@ on:
 jobs:
   update_pr:
     runs-on: ubuntu-latest
-    outputs:
-      headMatch: ${{ steps.update_pr.outputs.headMatch }}
-      bodyUpdated: ${{ steps.update_pr.outputs.bodyUpdated }}
     steps:
       - id: update_pr
-        uses: rhikura/def-action@v1.0.3
+        uses: rhikura/def-action@v1.0.4
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           jobType: "body_check"
-  update_pr_outputs:
-    runs-on: ubuntu-latest
-    needs: update_pr
-    steps:
-      - run: |
-          echo 'bodyUpdated:' ${{needs.update_pr.outputs.bodyUpdated}}
+      - id: branch_check
+        uses: rhikura/def-action@v1.0.4
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          jobType: "branch_check"
+      - id: notify_user
+        uses: rhikura/def-action@v1.0.4
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          jobType: "notify_user"

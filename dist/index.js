@@ -30654,6 +30654,10 @@ const bodyCheck = () => {
 }
 
 const notifyUser = () => {
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(_actions_github__WEBPACK_IMPORTED_MODULE_1__.context.eventName)
+}
+
+const branchCheck = () => {
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.info("User notified")
 }
 
@@ -30669,6 +30673,9 @@ const run = async () => {
                 break
             case "notify_user":
                 notifyUser()
+                break
+            case "branch_check":
+                branchCheck()
                 break
             default:
                 _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed("Job type undefine")
