@@ -12,7 +12,7 @@ jobs:
       bodyUpdated: ${{ steps.update_pr.outputs.bodyUpdated }}
     steps:
       - id: update_pr
-        uses: rhikura/def-action@v1.0.1
+        uses: rhikura/def-action@v1.0.3
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           jobType: "body_check"
