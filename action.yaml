@@ -1,0 +1,19 @@
+name: "Pull Request GitHub Action"
+description: "GitHub Action updates, checks, and notifies when a pull request body is opened, synced, or reopened"
+author: "Ivan Zakharin"
+runs:
+  using: "node20"
+  main: "src/index.js"
+inputs:
+  repo-token:
+    description: "The GITHUB_TOKEN secret"
+    required: true
+  jobType:
+    description: "Type of job"
+    required: true
+outputs:
+  bodyCheck:
+    description: "Whether the PR body was updated"
+branding:
+  icon: "edit"
+  color: "purple"

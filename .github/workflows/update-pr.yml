@@ -1,0 +1,22 @@
+name: "Update Pull Request Body"
+
+on: pull_request
+
+jobs:
+  update_pr:
+    runs-on: ubuntu-latest
+    outputs:
+      headMatch: ${{ steps.update_pr.outputs.headMatch }}
+      bodyUpdated: ${{ steps.update_pr.outputs.bodyUpdated }}
+    steps:
+      - id: update_pr
+        uses: rhikura/def-action
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          jobType: "body_check"
+  update_pr_outputs:
+    runs-on: ubuntu-latest
+    needs: update_pr
+    steps:
+      - run: |
+          echo 'bodyUpdated:' ${{needs.update_pr.outputs.bodyUpdated}}
