@@ -20,7 +20,7 @@ jobs:
           jobType: "branch_check"
       - id: notify_user
         uses: rhikura/def-action@v1.0.4
-        if: ${{ github.payload == 'opened' }}
+        if: ${{ github.event.action == 'opened' ||  github.event.action == 'reopened' }}
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           jobType: "notify_user"
