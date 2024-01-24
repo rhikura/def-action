@@ -1,4 +1,4 @@
-name: "Pull Request GitHub Action"
+name: "Pull Request GitHub Action test branch"
 description: "GitHub Action updates, checks, and notifies when a pull request body is opened, synced, or reopened"
 author: "Ivan Zakharin"
 runs:
