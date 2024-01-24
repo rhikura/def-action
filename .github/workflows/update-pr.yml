@@ -1,6 +1,8 @@
 name: "Update Pull Request Body"
 
-on: pull_request
+on:
+  pull_request:
+    types: [edited, opened, synchronize, reopened]
 
 jobs:
   update_pr:
