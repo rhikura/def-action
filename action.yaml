@@ -3,7 +3,7 @@ description: "GitHub Action updates, checks, and notifies when a pull request bo
 author: "Ivan Zakharin"
 runs:
   using: "node20"
-  main: "src/index.js"
+  main: "dist/index.js"
 inputs:
   repo-token:
     description: "The GITHUB_TOKEN secret"
