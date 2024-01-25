@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: update_pr
-        uses: rhikura/def-action
+        uses: rhikura/def-action@test
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           jobType: "body_check"
@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: branch_check
-        uses: rhikura/def-action
+        uses: rhikura/def-action@test
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           jobType: "branch_check"
@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: notify_user
-        uses: rhikura/def-action
+        uses: rhikura/def-action@test
         if: ${{ github.event.action == 'opened' ||  github.event.action == 'reopened' }}
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
