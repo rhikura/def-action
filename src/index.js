@@ -11,6 +11,10 @@ const bodyCheck = () => {
 }
 
 const notifyUser = () => {
+    core.info(github.context.eventName)
+}
+
+const branchCheck = () => {
     core.info("User notified")
 }
 
@@ -21,8 +25,18 @@ const run = async () => {
         }
 
         switch (input.jobType) {
-            case "body_check": bodyCheck();
-            case "notify_user": notifyUser();
+            case "body_check":
+                bodyCheck()
+                break
+            case "notify_user":
+                notifyUser()
+                break
+            case "branch_check":
+                branchCheck()
+                break
+            default:
+                core.setFailed("Job type undefine")
+                break
         }
 
     } catch (error) {
